@@ -2,7 +2,7 @@ const { countryCode, cart } = window.__config;
 const cfg = window.__config;
 
 const checkoutInit = () => {
-  localStorage.setItem("__is_checkout", "true");
+  setCookie("__is_checkout", "true");
   var input = document.querySelector("#phoneField");
 
   IMask(input, {
@@ -50,7 +50,7 @@ const checkoutInit = () => {
   const checkoutTotalTotalTitle = document.querySelector("#checkoutTotalTotalTitle");
   const checkoutTotalTotalAmount = document.querySelector("#checkoutTotalTotalAmount");
   const submitButton = document.querySelector("#submitButton");
-    
+
   const pr = lsGetSelectedProduct();
 
   checkoutCurrentPhoto.src = pr.images?.[0];
@@ -86,6 +86,6 @@ const checkoutInit = () => {
   checkoutTotalTotalAmount.innerText = cart.main.total.amount;
 
   submitButton.innerText = cart.main.checkoutButton;
-  submitButton.attachShadow=true;
+  submitButton.attachShadow = true;
   checkoutPcOffer.innerHTML = checkoutMobileOffer.innerHTML;
 };
